@@ -1,4 +1,7 @@
+import youtube_dl
+
 class video:
+
     def __init__(self, link, name, d_plist):
         self.link = link
         self.name = name
@@ -14,6 +17,18 @@ class video:
         self.link = tmp
         return
 
+    def convert(self):
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            # TODO figure out if changing this would work
+            "outtmpl": "../../Downloads/music_downloads/{}.mp3".format(self.name),
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }]
+        }
 
-number_one = video("https://www.youtube.com/watch?v=PfYnvDL0Qcw&list=RDPfYnvDL0Qcw&t=1", "number_one", False)
-print(number_one.link)
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([self.link])
+            return

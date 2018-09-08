@@ -1,4 +1,5 @@
 import youtube_dl
+from link import video
 from tkinter import *
 
 root = Tk()
@@ -10,7 +11,7 @@ root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
 root.geometry("1280x720")
 root.title("Youtube to Mp3 Converter")
-frame.configure(background='White')
+frame.configure(background='Grey')
 
 # Entry Label & Naming
 el = Label(frame, text="File Name:", font=("Calibri", 12)).grid(column=0, sticky=NW, pady=(10, 25))
@@ -47,8 +48,16 @@ def callback():
     name = e.get()
     link = e1.get()
 
+    # converting
+    video(link=link, name=name, d_plist=d_playlist).convert()
+
 
 convertb = Button(frame, text="Convert", font=("Calibri", 20), width=15, command=callback).grid(row=4, column=2,
                                                                                                 pady=(15, 0),
                                                                                                 padx=(155, 0), sticky=W)
+
+# TODO write a "terminate" function to break out anytime
+# TODO find a way to print the logs on the screen
+# TODO find a way to have it converting in the background so it doesn't make it seem like that it has stopped responding
+# TODO Make try and except to catch empty converts
 root.mainloop()

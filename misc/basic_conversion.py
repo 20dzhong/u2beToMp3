@@ -2,6 +2,7 @@ import youtube_dl
 
 ydl_opts = {
     'format': 'bestaudio/best',
+    # TODO figure out if changing this would work
     "outtmpl": "../../Downloads/music_downloads/%(title)s-%(id)s.%(ext)s",
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
