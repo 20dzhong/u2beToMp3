@@ -32,3 +32,12 @@ class video:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([self.link])
             return
+
+
+# Dummy exceptions
+class Empty_Name(Exception):
+    pass
+
+
+class Empty_Link(Exception):
+    pass
