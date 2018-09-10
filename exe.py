@@ -1,6 +1,6 @@
 import youtube_dl
 import subprocess
-from utils import *
+from logs_utils import *
 from link import *
 from tkinter import *
 

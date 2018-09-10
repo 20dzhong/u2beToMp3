@@ -10,5 +10,8 @@ The program requires other libraries to operate, some might not be downloaded on
     directory. (An alternative would be using the control panel to edit system environmental variables)   
     * **(Mac)** ``brew install ffmpeg`` (if you do not have brew, you'll have to install it)
    
-  
-directory probelm
+####Toubleshooting the program:  
+   * Directories are unique for every user, while the program is designed to work across different platforms, you might have
+   to manually change the download directory yourself.
+        * The download directory is located in ``link.py`` under ``def convert()``, change this line: ``../../Downloads/music_downloads/``
+        to your current download directory.
