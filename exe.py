@@ -3,6 +3,8 @@ import subprocess
 from logs_utils import *
 from link import *
 from tkinter import *
+import time
+
 
 root = Tk()
 frame = Frame(root)
@@ -41,6 +43,7 @@ e1.grid(row=3, column=2, ipady=10, pady=10)
 output = StringVar()
 output.set("")
 
+new_log = logs_var("")
 
 # create a callback function for converting
 def callback():
@@ -54,13 +57,17 @@ def callback():
         if name == '': raise Empty_Name
         link = e1.get()
         if link == '': raise Empty_Link
+        start_time = time.time()
+        output.set(new_log.concat("Processing, please wait..."))
         video(link=link, name=name, d_plist=d_playlist).convert()
+        elapsed_time = time.time() - start_time
+        output.set(new_log.concat("Process finished! It took " + str(elapsed_time) + " to finish"))
 
     except Empty_Name:
-        output.set("Empty name! Please enter a name to proceed")
+        output.set(new_log.concat("Empty name! Please enter a name to proceed"))
 
     except Empty_Link:
-        output.set("Empty link! Please enter a link to proceed")
+        output.set(new_log.concat("Empty link! Please enter a link to proceed"))
 
 
 convertb = Button(frame, text="Convert", font=("Calibri", 20), width=15, command=callback)
