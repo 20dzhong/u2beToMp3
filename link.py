@@ -33,11 +33,3 @@ class video:
             ydl.download([self.link])
             return
 
-
-# Dummy exceptions
-class Empty_Name(Exception):
-    pass
-
-
-class Empty_Link(Exception):
-    pass
