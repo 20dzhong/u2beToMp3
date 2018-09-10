@@ -69,6 +69,9 @@ def callback():
     except Empty_Link:
         output.set(new_log.concat("Empty link! Please enter a link to proceed"))
 
+    except:
+        output.set(new_log.concat("Unacceptable link or name, please try entering a new one."))
+
 
 convertb = Button(frame, text="Convert", font=("Calibri", 20), width=15, command=callback)
 convertb.grid(row=4, column=2, pady=(15, 0), padx=(155, 0), sticky=W)
@@ -80,8 +83,6 @@ log_output.grid(row=6, column=2, padx=(155, 0), sticky=W)
 
 
 # TODO write a "terminate" function to break out anytime
-# TODO find a way to print the logs on the screen
-# TODO find a way to have it converting in the background so it doesn't make it seem like that it has stopped responding
-
+# TODO make the words towards the left
 root.mainloop()
 
