@@ -22,7 +22,7 @@ class video:
         ydl_opts = {
             'format': 'bestaudio/best',
             # TODO figure out if changing this would work
-            "outtmpl": "../../Downloads/music_downloads/{}.mp3".format(self.name),
+            "outtmpl": "../../Users/Donovan/Downloads/music_downloads/{}.mp3".format(self.name),
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',

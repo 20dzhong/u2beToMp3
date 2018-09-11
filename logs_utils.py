@@ -22,6 +22,9 @@ class logs_var():
         self.original += new + "\n"
         return self.original
 
+    def clear(self):
+        self.original = ""
+
 
 # functions for output and callback
 def get_logs():
