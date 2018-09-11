@@ -18,20 +18,20 @@ root.title("Youtube to Mp3 Converter")
 frame.configure(background='#d6d6d6') #000000 #ededed
 
 # Entry Label & Naming
-el = Label(frame, text="File Name:", font=("Calibri", 12), bg="#d6d6d6").grid(column=0, sticky=NW, pady=(10, 25))
+el = Label(frame, text="File Name:", font=("Calibri", 12), bg="#d6d6d6").grid(padx=(35, 0), column=0, sticky=NW, pady=(10, 25))
 e = Entry(frame, font=("Calibri", 17), width=29)
 e.focus_set()
-e.grid(row=1, column=0, pady=(0, 40), ipady=8)
+e.grid(row=1, column=0, pady=(0, 40), padx=(35, 0), ipady=8)
 
 # Label Menu for drop down list
-dpl = Label(frame, text="Download Entire Playlist:", bg="#d6d6d6", font=("Calibri", 12)).grid(row=3, sticky=W)
+dpl = Label(frame, text="Download Entire Playlist:", bg="#d6d6d6", font=("Calibri", 12)).grid(padx=(35, 0), row=3, sticky=W)
 tkvar = StringVar(root)
 choices = {"True", "False"}
 tkvar.set("False")
 
 dplay_menu = OptionMenu(frame, tkvar, *choices)
 dplay_menu.config(width=25, height=1, font=("Calibri", 17))
-dplay_menu.grid(row=4, sticky=W, ipady=8)
+dplay_menu.grid(row=4, sticky=W, ipady=8, padx=(35, 0))
 
 # main link conversion, link entry box
 linkl = Label(frame, text="Input Link:", font=("Calibri", 20), bg="#d6d6d6").grid(row=2, column=2, padx=450)
