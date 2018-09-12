@@ -19,18 +19,30 @@ class video:
         return
 
     def convert(self):
+        """
         ydl_opts = {
             'format': 'bestaudio/best',
-            # TODO figure out if changing this would work
             "outtmpl": "../../Users/Donovan/Downloads/music_downloads/{}.mp3".format(self.name),
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }]
+            'postprocessors': [{'key': 'FFmpegExtractAudio',
+                                'preferredcodec': 'mp3',
+                                'preferredquality': '192'},
+                                {'key': 'FFmpegMetadata'}],
+        }
+        """
+        ydl_opts = {
+            "outtmpl": "../../Users/Donovan/Downloads/music_downloads/{}".format(self.name),
+            'postprocessors': [
+                {'key': 'FFmpegMetadata'},
+                {'key': 'FFmpegExtractAudio',
+                 'preferredcodec': 'mp3',
+                 'preferredquality': '192'},
+
+            ]
         }
 
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([self.link])
             return
 
+
+# youtube-dl https://www.youtube.com/watch?v=BKANqfvcspQ --add-metadata --embed-thumbnail --extract-audio --audio-format mp3

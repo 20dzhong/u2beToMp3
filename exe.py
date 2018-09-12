@@ -1,3 +1,5 @@
+import traceback
+
 import youtube_dl
 import subprocess
 from logs_utils import *
@@ -71,6 +73,7 @@ def callback():
 
     except:
         output.set(new_log.concat("Unacceptable link or name, please try entering a new one."))
+        traceback.print_exc()
 
 
 # make shift for clearing logs really bad, hope TODO fix later :(
