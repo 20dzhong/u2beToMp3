@@ -19,16 +19,6 @@ class video:
         return
 
     def convert(self):
-        """
-        ydl_opts = {
-            'format': 'bestaudio/best',
-            "outtmpl": "../../Users/Donovan/Downloads/music_downloads/{}.mp3".format(self.name),
-            'postprocessors': [{'key': 'FFmpegExtractAudio',
-                                'preferredcodec': 'mp3',
-                                'preferredquality': '192'},
-                                {'key': 'FFmpegMetadata'}],
-        }
-        """
         ydl_opts = {
             "outtmpl": "../../Users/Donovan/Downloads/music_downloads/{}".format(self.name),
             'postprocessors': [
