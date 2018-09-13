@@ -26,7 +26,6 @@ class video:
                 {'key': 'FFmpegExtractAudio',
                  'preferredcodec': 'mp3',
                  'preferredquality': '192'},
-
             ]
         }
 
@@ -34,5 +33,5 @@ class video:
             ydl.download([self.link])
             return
 
-
+# below is the terminal command
 # youtube-dl https://www.youtube.com/watch?v=BKANqfvcspQ --add-metadata --embed-thumbnail --extract-audio --audio-format mp3
